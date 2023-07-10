@@ -929,3 +929,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
   color: #333 !important;
   fill: #333 !important;
 }
+
+
+
+/* Persona */
+
+.single-persona_pubblica .container-fluid .figure.img-full > img {
+	max-height: 400px;
+}
