@@ -159,6 +159,7 @@ get_header();
 			<div class="container border-top border-light row-column-border">
 				<div class="row row-column-menu-left">
 					<div class="col-12 col-lg-3 pb-4 border-col">
+
 						<div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
 							<nav class="navbar it-navscroll-wrapper navbar-expand-lg" aria-label="Indice della pagina" data-bs-navscroll>
 								<div class="navbar-custom" id="navbarNavProgress">
@@ -199,11 +200,12 @@ get_header();
 								</div>
 							</nav>
 						</div>
+
 					</div>
 					<div class="col-12 col-lg-8 offset-lg-1 pt-4 pb-5">
 						<div class="it-page-sections-container">
 
-							<?php if ( !empty($incarico_nome) ) : ?>
+							<?php if ( !empty($sezioni_pagina['incarico']) ) : ?>
 							<section id="incarico" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Incarico</h2>
 								<div class="richtext-wrapper lora">
@@ -212,7 +214,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($incarico_tipo) ) : ?>
+							<?php if ( !empty($sezioni_pagina['tipo-incarico']) ) : ?>
 							<section id="tipo-incarico" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Tipo di incarico</h2>
 								<div class="richtext-wrapper lora">
@@ -221,7 +223,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($incarico_compensi) ) : ?>
+							<?php if ( !empty($sezioni_pagina['compensi']) ) : ?>
 							<section id="compensi" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Compensi</h2>
 								<div class="richtext-wrapper lora">
@@ -230,7 +232,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($incarico_data_insediamento) ) : ?>
+							<?php if ( !empty($sezioni_pagina['data-insediamento']) ) : ?>
 							<section id="data-insediamento" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Data di insediamento</h2>
 								<div class="richtext-wrapper lora">
@@ -239,10 +241,10 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($organizzazioni) ) : ?>
+							<?php if ( !empty($sezioni_pagina['organizzazione']) ) : ?>
 							<section id="organizzazione" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Organizzazione</h2>
-								<div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal"> <!-- TODO: card-teaser-light opp. card-teaser-100 -->
+								<div class="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
 									<?php foreach ( $organizzazioni as $GLOBALS['uo_id'] ) : ?>
 										<?php $GLOBALS['with_border'] = true; ?>
 										<?php get_template_part("template-parts/unita-organizzativa/card"); ?>
@@ -251,7 +253,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($competenze) ) : ?>
+							<?php if ( !empty($sezioni_pagina['competenze']) ) : ?>
 							<section id="competenze" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Competenze</h2>
 								<div class="richtext-wrapper lora">
@@ -260,7 +262,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($biografia) ) : ?>
+							<?php if ( !empty($sezioni_pagina['biografia']) ) : ?>
 							<section id="biografia" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Biografia</h2>
 								<div class="richtext-wrapper lora">
@@ -269,7 +271,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($punti_contatto) ) : ?>
+							<?php if ( !empty($sezioni_pagina['contatti']) ) : ?>
 							<section id="contatti" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Contatti</h2>
 								<div class="row">
@@ -282,7 +284,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($curriculum_vitae) ) : ?>
+							<?php if ( !empty($sezioni_pagina['curriculum-vitae']) ) : ?>
 							<section id="curriculum-vitae" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Curriculum vitae</h2>
 								<div class="card-wrapper card-teaser-wrapper">
@@ -299,7 +301,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($situazione_patrimoniale) ) : ?>
+							<?php if ( !empty($sezioni_pagina['situazione-patrimoniale']) ) : ?>
 							<section id="situazione-patrimoniale" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Situazione patrimoniale</h2>
 								<div class="richtext-wrapper lora">
@@ -308,7 +310,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($dichiarazione_redditi) ) : ?>
+							<?php if ( !empty($sezioni_pagina['dichiarazione-redditi']) ) : ?>
 							<section id="dichiarazione-redditi" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Dichiarazione dei redditi</h2>
 								<div class="card-wrapper card-teaser-wrapper">
@@ -323,7 +325,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($spese_elettorali) ) : ?>
+							<?php if ( !empty($sezioni_pagina['spese-elettorali']) ) : ?>
 							<section id="spese-elettorali" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Spese elettorali</h2>
 								<p class="lora">
@@ -341,7 +343,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($variazione_situazione_patrimoniale) ) : ?>
+							<?php if ( !empty($sezioni_pagina['situazione-patrimoniale']) ) : ?>
 							<section id="variazioni-situazione-patrimoniale" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Variazioni situazione patrimoniale</h2>
 								<div class="card-wrapper card-teaser-wrapper">
@@ -356,7 +358,7 @@ get_header();
 							</section>
 							<?php endif; ?>
 
-							<?php if ( !empty($altre_cariche) ) : ?>
+							<?php if ( !empty($sezioni_pagina['altre-cariche']) ) : ?>
 							<section id="altre-cariche" class="it-page-section mb-5">
 								<h2 class="h4 my-3">Altre cariche</h2>
 								<div class="card-wrapper card-teaser-wrapper">
@@ -373,10 +375,12 @@ get_header();
 
 
 							<?php get_template_part('template-parts/single/page_bottom', 'simple'); ?>
+
 						</div>
 					</div>
 				</div>
 			</div>
+
 			<?php get_template_part("template-parts/common/valuta-servizio"); ?>
 			<?php get_template_part('template-parts/single/more-posts', 'carousel'); ?>
 			<?php get_template_part("template-parts/common/assistenza-contatti"); ?>
