@@ -70,42 +70,25 @@ get_header();
 			}
 
 
-			$indice_pagina = [
-				'incarico' => 'Incarico',
-				'tipo-incarico' => 'Tipo di Incarico',
-				'compensi' => 'Compensi',
-				'data-insediamento' => 'Data di insediamento',
-				'organizzazione' => 'Organizzazione',
-				'competenze' => 'Competenze',
-				'biografia' => 'Biografia',
-				'contatti' => 'Contatti',
-				'curriculum-vitae' => 'Curriculum vitae',
-				'situazione-patrimoniale' => 'Situazione patrimoniale',
-				'dichiarazione-redditi' => 'Dichiarazione dei redditi',
-				'spese-elettorali' => 'Spese elettorali',
-				'variazioni-situazione-patrimoniale' => 'Variazioni situazione patrimoniale',
-				'altre-cariche' => 'Altre cariche',
-			];
-
 			$sezioni_pagina = [
-				'incarico' => !empty($incarico_nome),
-				'tipo-incarico' => !empty($incarico_tipo),
-				'compensi' => !empty($incarico_compensi),
-				'data-insediamento' => !empty($incarico_data_insediamento),
-				'organizzazione' => !empty($organizzazioni),
-				'competenze' => !empty($competenze),
-				'biografia' => !empty($biografia),
-				'contatti' => !empty($punti_contatto),
-				'curriculum-vitae' => !empty($curriculum_vitae),
-				'situazione-patrimoniale' => !empty($situazione_patrimoniale),
-				'dichiarazione-redditi' => !empty($dichiarazione_redditi),
-				'spese-elettorali' => !empty($spese_elettorali),
-				'variazioni-situazione-patrimoniale' => !empty($variazione_situazione_patrimoniale),
-				'altre-cariche' => !empty($altre_cariche),
+				'incarico' => [ 'Incarico', !empty($incarico_nome) ],
+				'tipo-incarico' => [ 'Tipo di Incarico', !empty($incarico_tipo) ],
+				'compensi' => [ 'Compensi', !empty($incarico_compensi) ],
+				'data-insediamento' => [ 'Data di insediamento', !empty($incarico_data_insediamento) ],
+				'organizzazione' => [ 'Organizzazione', !empty($organizzazioni) ],
+				'competenze' => [ 'Competenze', !empty($competenze) ],
+				'biografia' => [ 'Biografia', !empty($biografia) ],
+				'contatti' => [ 'Contatti', !empty($punti_contatto) ],
+				'curriculum-vitae' => [ 'Curriculum vitae', !empty($curriculum_vitae) ],
+				'situazione-patrimoniale' => [ 'Situazione patrimoniale', !empty($situazione_patrimoniale) ],
+				'dichiarazione-redditi' => [ 'Dichiarazione dei redditi', !empty($dichiarazione_redditi) ],
+				'spese-elettorali' => [ 'Spese elettorali', !empty($spese_elettorali) ],
+				'variazioni-situazione-patrimoniale' => [ 'Variazioni situazione patrimoniale', !empty($variazione_situazione_patrimoniale) ],
+				'altre-cariche' => [ 'Altre cariche', !empty($altre_cariche) ],
 			];
 
-			$sezioni_pagina = array_filter($sezioni_pagina);
-			$indice_pagina = array_intersect_key($indice_pagina, $sezioni_pagina);
+			$sezioni_pagina = array_filter($sezioni_pagina, fn($el) => $el[1]);
+			$indice_pagina = array_map(fn($el) => $el[0], $sezioni_pagina);
 		?>
 
 			<div class="container" id="main-container">
