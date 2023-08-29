@@ -48,14 +48,16 @@ get_header();
             // valori per metatag
             $categorie = get_the_terms($post, 'categorie_servizio');
             $categoria_servizio = $categorie[0]->name;
-            $ipa = dci_get_meta('codice_ente_erogatore');
+            $ipa = dci_get_meta('codice_ente_erogatore') ?: dci_get_option('nome_comune') ?: get_option('blogname');
             $copertura_geografica = dci_get_wysiwyg_field("copertura_geografica");
             if ($canale_fisico_uffici[0]??null) {
                 $ufficio = get_post($canale_fisico_uffici[0]);
                 $luogo_id = dci_get_meta('sede_principale', '_dci_unita_organizzativa_', $ufficio->ID);
                 $indirizzo = dci_get_meta('indirizzo', '_dci_luogo_', $luogo_id);
                 $quartiere = dci_get_meta('quartiere', '_dci_luogo_', $luogo_id);
+                $indirizzo .= $quartiere ? " - $quartiere" : '';
                 $cap = dci_get_meta('cap', '_dci_luogo_', $luogo_id);
+                $comune_ufficio = $ipa;
             }
             function convertToPlain($text) {
                 $text = str_replace(array("\r", "\n"), '', $text);
@@ -97,8 +99,8 @@ get_header();
                             "address": {
                                 "streetAddress": <?php echo json_encode($indirizzo); ?>,
                                 "postalCode": <?php echo json_encode((string)$cap); ?>
-                                <?php if ( !empty($quartiere) ) : ?>,
-                                "addressLocality": <?php echo json_encode($quartiere); ?>
+                                <?php if ( !empty($comune_ufficio) ) : ?>,
+                                "addressLocality": <?php echo json_encode($comune_ufficio); ?>
                                 <?php endif; ?>
                             }
                         }
